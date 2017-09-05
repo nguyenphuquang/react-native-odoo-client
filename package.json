@@ -1,0 +1,31 @@
+{
+  "name": "react-native-odoo-client",
+  "description": "Odoo client for react-native",
+  "keywords": [
+    "xmlrpc",
+    "xml",
+    "rpc"
+  ],
+  "version": "0.0.1",
+  "preferGlobal": false,
+  "author": "Nguyen Phu Quang <nguyenphuquang@gmail.com> (https://github.com/nguyenphuquang)",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/nguyenphuquang/react-native-odoo-client.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nguyenphuquang/react-native-odoo-client/issues"
+  },
+  "directories": {},
+  "main": "./odoo.js",
+  "dependencies": {
+    "react-native-xmlrpc": "git+https://github.com/nguyenphuquang/react-native-xmlrpc.git"
+  },
+  "devDependencies": {},
+  "scripts": {},
+  "engines": {
+    "node": ">=6.0",
+    "npm": ">=1.0.0"
+  },
+  "license": "MIT"
+}
