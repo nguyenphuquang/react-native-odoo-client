@@ -1,8 +1,6 @@
 'use strict';
 
 var Client = require('react-native-xmlrpc');
-var htmlparser = require('htmlparser2-without-node-native');
-var domutils = require('domutils');
 var Deserializer = require('react-native-xmlrpc/lib/Deserializer');
 
 module.exports = Odoo;
