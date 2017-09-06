@@ -53,7 +53,6 @@ function Odoo(options) {
 }
 
 Odoo.prototype.authenticate = async function () {
-    var self = this;
     return await authenticate(this.settings.url, this.settings.db, this.settings.username, this.settings.password);
 }
 
@@ -61,7 +60,6 @@ Odoo.prototype.doAuthentication = async function () {
     if (!this.settings.uid) {
         console.log ('authenticating...');
         this.settings.uid = await this.authenticate();
-        console.log ('uid===================', this.settings.uid);
     }
 }
 
