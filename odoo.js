@@ -82,7 +82,7 @@ Odoo.prototype.doAuthentication = async function () {
 Odoo.prototype.search = async function (model, params, extra) {
     await this.doAuthentication();
     return await execute_kw(this.settings.url, this.settings.db, this.settings.uid, this.settings.password,
-        model, "search", params, extra);
+        model, 'search', params, extra);
 }
 
 /**
@@ -93,7 +93,7 @@ Odoo.prototype.search = async function (model, params, extra) {
 Odoo.prototype.search_count = async function (model, params) {
     await this.doAuthentication();
     return await execute_kw(this.settings.url, this.settings.db, this.settings.uid, this.settings.password,
-        model, "search_count", params, {});
+        model, 'search_count', params, {});
 }
 
 /**
@@ -104,7 +104,7 @@ Odoo.prototype.search_count = async function (model, params) {
  */
 Odoo.prototype.read = async function (model, params, extra) {
     let ids = await this.search (model, params, extra);
-    return await execute_kw(this.settings.url, this.settings.db, this.settings.uid, this.settings.password, model, "read", ids, {});
+    return await execute_kw(this.settings.url, this.settings.db, this.settings.uid, this.settings.password, model, 'read', ids, {});
 }
 
 /**
@@ -114,7 +114,7 @@ Odoo.prototype.read = async function (model, params, extra) {
  */
 Odoo.prototype.fields_get = async function (model, attributes) {
     await this.doAuthentication();
-    return await execute_kw(this.settings.url, this.settings.db, this.settings.uid, this.settings.password, model, "fields_get", [], attributes);
+    return await execute_kw(this.settings.url, this.settings.db, this.settings.uid, this.settings.password, model, 'fields_get', [], attributes);
 }
 
 /**
@@ -122,7 +122,7 @@ Odoo.prototype.fields_get = async function (model, attributes) {
  */
 Odoo.prototype.search_read = async function (model, params, extra) {
     await this.doAuthentication();
-    return await execute_kw(this.settings.url, this.settings.db, this.settings.uid, this.settings.password, model, "search_read", params, extra);
+    return await execute_kw(this.settings.url, this.settings.db, this.settings.uid, this.settings.password, model, 'search_read', params, extra);
 }
 
 /**
@@ -132,7 +132,7 @@ Odoo.prototype.search_read = async function (model, params, extra) {
  */
 Odoo.prototype.create = async function (model, fields) {
     await this.doAuthentication();
-    return await execute_kw(this.settings.url, this.settings.db, this.settings.uid, this.settings.password, model, "create", [fields]);
+    return await execute_kw(this.settings.url, this.settings.db, this.settings.uid, this.settings.password, model, 'create', [fields]);
 }
 
 /**
@@ -142,7 +142,7 @@ Odoo.prototype.create = async function (model, fields) {
  */
 Odoo.prototype.update = async function (model, id, fields) {
     await this.doAuthentication();
-    return await execute_kw(this.settings.url, this.settings.db, this.settings.uid, this.settings.password, model, "write", [[id], fields]);
+    return await execute_kw(this.settings.url, this.settings.db, this.settings.uid, this.settings.password, model, 'write', [[id], fields]);
 }
 
 /**
@@ -152,5 +152,14 @@ Odoo.prototype.update = async function (model, id, fields) {
  */
 Odoo.prototype.delete = async function (model, id) {
     await this.doAuthentication();
-    return await execute_kw(this.settings.url, this.settings.db, this.settings.uid, this.settings.password, model, "unlink", [[id]]);
+    return await execute_kw(this.settings.url, this.settings.db, this.settings.uid, this.settings.password, model, 'unlink', [[id]]);
+}
+
+/**
+ * Check access right of user on model
+ * @param {string} model The model name
+ */
+Odoo.prototype.check_access_rights = async function (model, params, extra) {
+    await this.doAuthentication();
+    return await execute_kw(this.settings.url, this.settings.db, this.settings.uid, this.settings.password, model, 'check_access_rights', params, extra);
 }
